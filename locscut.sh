@@ -2,10 +2,23 @@
 #Script cuts the .locs files produced by the vcftoldhat.sh script into windows of 2000 SNPs with a 500 SNP overlap
 #it should be run in the folder where the full .locs files are saved
 
+n=2000 #the preset ammount of SNPs in each window
+k=500 #the preset size of the windows
+
+while getopts “nk” OPTION
+do
+  case $OPTION in
+    n)
+      n=$OPTARG
+      ;;
+    k)
+      k=$OPTARG
+      ;;
+  esac
+done
+
 for file in *ldhat.locs; do #runs over all the .locs files
   N=$(cut -f 1 $file | head -n 1) #finds the total ammount of SNPs in the file
-  n=2000 #the ammount of SNPs in each window
-  k=500 #the size of the windows
   tail -n $N $file > file1.txt #creates a file that is the .locs file without the header
   f=file1.txt #sets the new file's name to a variable
   for i in `seq 0 $((($N-$n)/($n-$k)))`; do #runs as many times as there are going to be windows in file (possibly minus one, see "if" lower in the code)
