@@ -11,8 +11,16 @@ The initial data used in this project was .vcf files containing phased SNPs for 
 
 # locscut.sh
 
-This script takes the full .locs files obtained with vcftoldhat and cuts them into 2000 SNP long files with 500 SNP overlaps between successive windows. These window and overlap values are the preset, but can be changed with the **-n** and **-k** options (**-n** for the window size and **-k** for the overlap).
+This script takes the full .locs files obtained with vcftoldhat.sh and cuts them into 2000 SNP long files with 500 SNP overlaps between successive windows. These window and overlap sizes are the preset, but can be changed with the **-n** and **-k** options (**-n** for the window size and **-k** for the overlap).
 
 ```sh
   $ ./locscut.sh -n 2000 -k 500
+```
+
+# sitescut.sh
+
+This script takes the full .sites files obtained with vcftoldhat.sh and cuts them into 2000 SNP long files with 500 SNP overlaps between successive windows. These window and overlap sizes are preset, but can be changed with the **-n** and **-k** options (**-n** for the window size and **-k** for the overlap).
+
+```sh
+  $ ./sitescut.sh -n 2000 -k 500
 ```
