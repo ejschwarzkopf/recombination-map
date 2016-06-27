@@ -24,3 +24,11 @@ This script takes the full .sites files obtained with vcftoldhat.sh and cuts the
 ```sh
   $ ./sitescut.sh -n 2000 -k 500
 ```
+
+# StartLocsAtZero.sh
+
+Since LDhat doesn't run files where the first location doesn't start with a whole part of zero, this script subtracts the whole part of the location of the first SNP from all the locations in the file for each .locs window file in a folder. It takes no arguments.
+
+```sh
+  $ ./StartLocsAtZero.sh
+```
