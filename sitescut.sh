@@ -2,10 +2,23 @@
 #Script cuts the .sites files into 2000 SNP windows with 500 SNP overlaps
 #it should be run in the folder with the full .sites files
 
+n=2000 #the preset ammount of SNPs in each window
+k=500 #the preset size of the overlaps
+
+while getopts “nk” OPTION
+do
+  case $OPTION in
+    n)
+      n=$OPTARG
+      ;;
+    k)
+      k=$OPTARG
+      ;;
+  esac
+done
+
 for file in *ldhat.sites; do #runs over all the .sites files in the folder
   N=$(cut -f 2 $file | head -n 1) #finds the total number of SNPs
-  n=2000 #the size of the windows
-  k=500 #the size of the overlaps
   j=$(wc -l $file | cut -f 1 -d " ") #find the number of individuals in the population
   j=$(($j-1)) #correct the amount
   tail -n $j $file > file1.txt #save the .sites file in a new one without the header
