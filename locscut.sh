@@ -3,7 +3,7 @@
 #it should be run in the folder where the full .locs files are saved
 
 n=2000 #the preset ammount of SNPs in each window
-k=500 #the preset size of the windows
+k=500 #the preset size of the overlaps
 
 while getopts “nk” OPTION
 do
