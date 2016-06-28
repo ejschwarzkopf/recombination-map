@@ -5,7 +5,7 @@
 n=2000 #the preset ammount of SNPs in each window
 k=500 #the preset size of the overlaps
 
-while getopts “nk” OPTION
+while getopts “n:k:” OPTION
 do
   case $OPTION in
     n)
