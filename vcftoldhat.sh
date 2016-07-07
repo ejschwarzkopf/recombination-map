@@ -8,6 +8,6 @@ for file in *.ids; do #runs over all the .ids files in the folder
   MAF=$(echo "2/$MAFN+0.0001" | bc -l) #MAF is set so that none of the SNPs have only one or two of the rare allele
   for chrom in *.vcf; do #runs over all of the .vcf files (one per chromosome)
     SCAF=$(tail -n 1 $chrom | cut -f 1) #obtains the scaffold value for vcftools
-    vcftools --vcf $chrom --chr $SCAF --phased --keep $file --maf $MAF --out "$chrom.$file.ldhat" #runs vcftools with the parameters collected and outputs into files type (cacao.phased.chr#.vcf.(PopName).ids.ldhat.ldhat.(locs or sites)
+    vcftools --vcf $chrom --chr $SCAF --phased --ldhat --keep $file --maf $MAF --out "$chrom.$file.ldhat" #runs vcftools with the parameters collected and outputs into files type (cacao.phased.chr#.vcf.(PopName).ids.ldhat.ldhat.(locs or sites)
   done
 done
