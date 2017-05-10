@@ -52,8 +52,11 @@ This script runs interval from LDhat on all the windows in a folder. It's writte
 -ipath: input path, remember to end it with a /
 -opath: output path
 -lk: lookup table file
+-its: number of iterations
+-bpen: block penalty
+-samp: sample every samp iterations
 
 ```sh
-  $ ./LDhatter.sh -n 143 -k 0 -pop Amelonado -chr 2 -ipath path_to_input -opath path_to_output -lk lookup_table_file
+  $ ./LDhatter.sh -n 143 -k 0 --pop Amelonado --chr 2 --ipath path_to_input --opath path_to_output --lk lookup_table_file --its 100000000 --bpen 5 --samp 10000
 ```
 
