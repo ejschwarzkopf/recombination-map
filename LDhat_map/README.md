@@ -32,3 +32,12 @@ Since LDhat doesn't run files where the first location doesn't start with a whol
 ```sh
   $ ./StartLocsAtZero.sh
 ```
+
+# add0.0001toloc.sh
+
+Since LDhat doesn't run files where the first location is exactly zero, this script adds 0.0001 to the first location. It takes a single argument, which is the file to which the 0.0001 will be added.
+
+```sh
+  $ ./add0.0001toloc.sh filename
+```
+
