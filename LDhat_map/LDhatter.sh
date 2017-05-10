@@ -11,7 +11,7 @@
 #opath: output path
 #lk: lookup table file
 
-while getopts “n:k:” OPTION
+while getopts “n:k:pop:chr:ipath:opath:lk:” OPTION
 do
   case $OPTION in
     n)
