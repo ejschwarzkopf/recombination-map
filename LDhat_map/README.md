@@ -46,9 +46,9 @@ Since LDhat doesn't run files where the first location is exactly zero, this scr
 This script runs interval from LDhat on all the windows in a folder. It's written to fit a naming structure where windows are identified by their population name, chromosome name, and number. It moves the output to files structured in a similar fashion. It takes seven arguments:
 
 -n: highest window number to be run
+-k: lowest window number to be run
 -pop: population
 -chr: chromosome
--k: lowest window number to be run
 -ipath: input path, remember to end it with a /
 -opath: output path
 -lk: lookup table file
@@ -57,6 +57,8 @@ This script runs interval from LDhat on all the windows in a folder. It's writte
 -samp: sample every samp iterations
 
 ```sh
-  $ ./LDhatter.sh -n 143 -k 0 --pop Amelonado --chr 2 --ipath path_to_input --opath path_to_output --lk lookup_table_file --its 100000000 --bpen 5 --samp 10000
+  $ ./LDhatter.sh -n 143 -k 0 -pop Amelonado -chr 2 -ipath path_to_input -opath path_to_output -lk lookup_table_file -its 100000000 -bpen 5 -samp 10000
 ```
+
+# LDstatser.sh
 
