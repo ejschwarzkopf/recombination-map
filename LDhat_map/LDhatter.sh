@@ -53,8 +53,8 @@ done
 
 for i in `seq $k $n`; do#run over sequence of windows
   interval -seq ${ipath}filename.${pop}.${chr}.${i}.sites -loc ${ipath}infilename.${pop}.${chr}.${i}.locs -lk $lk -its $its -bpen $bpen -samp $samp #run interval for $its iterations, block penalty of $bpen and sampling every $samp iterations
-  mv bounds.txt ${opath}outfilename.${pop}.${chr}.${i}.bounds.txt#move the bounds.txt output file to it's destination
-  mv new_lk.txt ${opath}outfilename.${pop}.${chr}.${i}.new_lk.txt#move the new_lk.txt output file to it's destination
-  mv rates.txt ${opath}outfilename.${pop}.${chr}.${i}.rates.txt#move the rates.txt output file to it's destination
-  mv type_table.txt ${opath}outfilename.${pop}.${chr}.${i}.type_table.txt#move the type_table.txt output file to it's destination
+  mv bounds.txt ${opath}outfilename.${pop}.${chr}.${i}.bounds.txt#move the bounds.txt output file to its destination
+  mv new_lk.txt ${opath}outfilename.${pop}.${chr}.${i}.new_lk.txt#move the new_lk.txt output file to its destination
+  mv rates.txt ${opath}outfilename.${pop}.${chr}.${i}.rates.txt#move the rates.txt output file to its destination
+  mv type_table.txt ${opath}outfilename.${pop}.${chr}.${i}.type_table.txt#move the type_table.txt output file to its destination
 done
