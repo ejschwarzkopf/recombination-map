@@ -8,7 +8,7 @@
 #pop: population
 #chr: chromosome
 #ipath: input path, remember to end it with a /
-#opath: output path
+#opath: output path, remember to end it with a /
 #lk: lookup table file
 #its: number of iterations
 #bpen: block penalty
