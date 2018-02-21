@@ -24,18 +24,35 @@ Pur[,3]<-Pur[,3]*(4*NE[10,2])}
 
 AllPopsRates<-list("Ame"=Ame, "Con"=Con, "Cri"=Cri, "Cur"=Cur, "Gui"=Gui, "Iqu"=Iqu, "Mar"=Mar, "Nac"=Nac, "Nan"=Nan, "Pur"=Pur)
 
-for(chr 1:10){
+Chromosomes<-c()
+Positions<-c()
+Means<-c()
+Medians<-c()
+Lbounds<-c()
+Ubounds<-c()
+
+
+for(chr in 1:10){
   for(i in 1:15000){
     maxkb<-sum(ChromSizes[1:i,2])/1000
     minkb<-sum(ChromSizes[0:(i-1),2])/1000
-    Mean<-c()
-    Median<-c()
-    LBound<-c()
-    UBound<-c()
-      for(j in 1:10){
-        Mean<-c(Mean, mean(AllPopsRates[[j]][which(AllPopsRates[[j]][,1]==i & AllPopsRates[[j]][,2]<maxkb & AllPopsRates[[j]][,2]>=minkb),3]))
-        Median<-c(Median, median(AllPopsRates[[j]][which(AllPopsRates[[j]][,1]==i & AllPopsRates[[j]][,2]<maxkb & AllPopsRates[[j]][,2]>=minkb),3]))
-        
-      }
+    Values<-c()
+    for(j in 1:10){
+        Values<-c(Values, mean(AllPopsRates[[j]][which(AllPopsRates[[j]][,1]==i & AllPopsRates[[j]][,2]<maxkb & AllPopsRates[[j]][,2]>=minkb),3]))        
+    }
+    Chromosomes<-c(Chromosomes, chr)
+    Positions<-c(Positions, (maxkb-minkb)/2)
+    Means<-c(Means, mean(Values))
+    Medians<-c(Medians, median(Values))
+    Ubounds<-c(Ubounds, sort(Values)[qbinom(c(.025, .975), length(Values), 0.5)][2])
+    Lbounds<-c(Lbounds, sort(Values)[qbinom(c(.025, .975), length(Values), 0.5)][1])
   }
 }
+
+ConsensusMap<-matrix(c(Chromosomes, Positions, Means, Medians, Ubounds, Lbounds), ncol=6, byrow=F)
+
+write.table(ConsensusMap, quote=F)
+
+
+
+
