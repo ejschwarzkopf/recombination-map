@@ -34,8 +34,8 @@ Ubounds<-c()
 
 for(chr in 1:10){
   for(i in 1:15000){
-    maxkb<-sum(ChromSizes[1:i,2])/1000
-    minkb<-sum(ChromSizes[0:(i-1),2])/1000
+    maxkb<-sum(ChromSizes[1:chr,2])/(i*1000)
+    minkb<-sum(ChromSizes[0:(chr-1),2])/(i*1000)
     Values<-c()
     for(j in 1:10){
         Values<-c(Values, mean(AllPopsRates[[j]][which(AllPopsRates[[j]][,1]==i & AllPopsRates[[j]][,2]<maxkb & AllPopsRates[[j]][,2]>=minkb),3]))        
