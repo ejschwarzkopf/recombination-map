@@ -1,4 +1,5 @@
 #!/bin/bash
+#This script simulates segments of a genome that match an existing set, runs them through RepeatMasker, and extracts the percentage of sequence that are retroelements, DNA transposons, and total interspersed repeats. It repeats this 1000 times and exports the results to a table
 
 for i in $(seq 1 1000); do
   #Shuffle the hotspots
