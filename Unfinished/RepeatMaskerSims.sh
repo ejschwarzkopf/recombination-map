@@ -21,7 +21,7 @@ for i in $(cat tmp1.hackready.txt); do echo ">$i" >> tmp1.fasta; fastahack -r $i
 #Extract values of interest
 grep "Retroelements" tmp1.fasta.tbl | tr -s ' ' | cut -d " " -f 5 > tmp1.RE.txt
 grep "DNA transposon" tmp1.fasta.tbl | tr -s ' ' | cut -d " " -f 6 > tmp1.TE.txt
-grep "Total interspersed repeats" tmp.fasta.tbl | tr -s ' ' | cut -d " " -f 6 > tmp1.IR.txt
+grep "Total interspersed repeats" tmp1.fasta.tbl | tr -s ' ' | cut -d " " -f 6 > tmp1.IR.txt
 
 #Add values to table for R import
 paste tmp1.RE.txt tmp1.TE.txt tmp1.IR.txt >> RepMaskSim.tbl
