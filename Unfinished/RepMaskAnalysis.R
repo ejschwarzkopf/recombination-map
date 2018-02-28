@@ -21,3 +21,6 @@ length(RepMaskSim$Retroelemets[which(RepMaskSim$Retroelemets>2.34)])
 length(RepMaskSim$`DNA transposons`[which(RepMaskSim$`DNA transposons`>1.94)])
 length(RepMaskSim$`Total interspersed repeats`[which(RepMaskSim$`Total interspersed repeats`>4.28)])
 apply(RepMaskSim, MARGIN = 2, FUN = mean)
+
+ggplot(ggRSF, aes(x=value, fill=variable)) + geom_density(alpha=.3) + facet_grid(variable ~ .) + geom_vline(data=vl, aes(xintercept=value, col=variable)) + theme_void()
+ggplot(ggRSF, aes(x=value, fill=variable)) + geom_density(alpha=.3) + facet_grid(variable ~ .) + theme_void()
